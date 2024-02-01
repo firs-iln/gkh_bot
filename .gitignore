@@ -1,0 +1,12 @@
+gis_gkh_bot/client_secret.json
+gis_gkh_bot/gis-gkh-dce0833e31ca.json
+gis_gkh_bot/.env
+**/.DS_Store
+**/__pycache__/
+test.env
+apache-tomcat-8.5.93/
+chromedriver/
+examples/
+gis_gkh_bot/test_responses
+**/.idea/
+gis_gkh_bot/reports/*

@@ -1,0 +1,45 @@
+version: "1.0"
+
+services:
+  gkh_bot:
+    build:
+      context: ./gis_gkh_bot
+      dockerfile: Dockerfile
+    container_name: gkh_bot
+    restart: always
+    command: sh -c "python main.py"
+    env_file:
+      - gis_gkh_bot/.env
+    depends_on:
+      - chromedriver
+  chromedriver:
+    build:
+      context: .
+      dockerfile: Dockerfile_apache
+    container_name: gkh_chromedriver
+    restart: always
+    ports:
+      - "8080:8080"
+    env_file:
+      - gis_gkh_bot/.env
+  redis:
+    image: redis:alpine
+    container_name: gkh_redis
+    command: redis-server --appendonly yes --replica-read-only no
+    restart: unless-stopped
+  db:
+    image: postgres:15
+    container_name: gkh_postgres
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    ports:
+      - "5430:5432"
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:
+

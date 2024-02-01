@@ -1,0 +1,17 @@
+FROM tomcat:8.5.93
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get -y install default-jre-headless && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /chromedriver
+
+COPY ./egrnrr.sh .
+
+COPY apache-tomcat-8.5.93 ./apache-tomcat-8.5.93
+
+COPY chromedriver ./chromedriver
+
+CMD ["./egrnrr.sh"]
