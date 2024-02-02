@@ -13,7 +13,7 @@ services:
     depends_on:
       - chromedriver
 #      - db
-  chromedridver:
+  chromedriver:
     build:
       context: .
       dockerfile: Dockerfile_apache
