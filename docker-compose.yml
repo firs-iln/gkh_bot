@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: gkh_bot
     restart: always
-    command: sh -c "poetry run python -m gis_gkh_bot/main.py"
+    command: sh -c "poetry run python -m gis_gkh_bot/main"
     env_file:
       - gis_gkh_bot/.env
     depends_on:
