@@ -17,7 +17,9 @@ RUN pip install -r requirements.txt
 #RUN poetry config virtualenvs.create false \
 #    && poetry install --no-interaction --no-ansi
 
-RUN playwright install && playwright install-deps
+#RUN playwright install
+##
+#RUN playwright install-deps
 
 COPY .. .
 
