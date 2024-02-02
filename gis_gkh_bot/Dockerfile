@@ -6,16 +6,16 @@ WORKDIR /gis_gkh_bot
 
 RUN pip install --upgrade pip
 
-COPY requirements.txt /gis_gkh_bot/
+#COPY requirements.txt /gis_gkh_bot/
+#
+#RUN pip install -r requirements.txt
+#
+RUN pip install poetry
 
-RUN pip install -r requirements.txt
-#
-#RUN pip install poetry
-#
-#COPY poetry.lock pyproject.toml ./
-#
-#RUN poetry config virtualenvs.create false \
-#    && poetry install --no-interaction --no-ansi
+COPY poetry.lock pyproject.toml ./
+
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi
 
 #RUN playwright install
 ##
