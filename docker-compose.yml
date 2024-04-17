@@ -10,19 +10,19 @@ services:
     command: sh -c "python main.py"
     env_file:
       - gis_gkh_bot/.env
-    depends_on:
-      - chromedriver
+#    depends_on:
+#      - chromedriver
 #      - db
-  chromedriver:
-    build:
-      context: .
-      dockerfile: Dockerfile_apache
-    container_name: gkh_chromedriver
-    restart: always
-    ports:
-      - "8080:8080"
-    env_file:
-      - gis_gkh_bot/.env
+#  chromedriver:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile_apache
+#    container_name: gkh_chromedriver
+#    restart: always
+#    ports:
+#      - "8080:8080"
+#    env_file:
+#      - gis_gkh_bot/.env
   redis:
     image: redis:alpine
     container_name: gkh_redis

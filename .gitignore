@@ -10,3 +10,4 @@ examples/
 gis_gkh_bot/test_responses
 **/.idea/
 gis_gkh_bot/reports/*
+**/*.env
